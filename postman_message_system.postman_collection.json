@@ -1,0 +1,537 @@
+{
+	"id": "d2e01995-4d93-af32-f63f-ad37e5203cbf",
+	"name": "postman_message_system",
+	"description": "",
+	"order": [
+		"4418aa04-55f5-4c18-a80a-8072037d700f",
+		"fa0c9897-f2ca-3f17-ef51-734b155c06cf",
+		"4b9704b0-57dd-3c48-c138-3541f814b24d",
+		"3c259927-7cd3-4632-6192-35f722f801af",
+		"6a59b396-8750-c357-f2f1-f5e1a145a59f",
+		"74597dfc-cd24-96a3-895a-618dc84e0d28",
+		"41dc6393-0a73-25c7-2759-4bbf9fe46cb0",
+		"c9eedb8e-5c93-804a-a945-5c85fafee0af"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1649721110272,
+	"owner": "20444492",
+	"public": false,
+	"requests": [
+		{
+			"id": "3c259927-7cd3-4632-6192-35f722f801af",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/delete_receiver/ermi",
+			"queryParams": [
+				{
+					"key": "reciver",
+					"value": "daniel",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "message",
+					"value": "hi daniel, how are you?",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "subject",
+					"value": "greeting",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "creation_date",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": "",
+			"method": "DELETE",
+			"collectionId": "d2e01995-4d93-af32-f63f-ad37e5203cbf",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://127.0.0.1:5000/delete_receiver/ermi",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1649721238116,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\"sender\": \"dor\", \"receiver\": \"aaron\", \"message\": \"hi aaron?\", \"subject\": \"greeting\"}"
+		},
+		{
+			"id": "41dc6393-0a73-25c7-2759-4bbf9fe46cb0",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/newMessage",
+			"queryParams": [
+				{
+					"key": "sender",
+					"value": "Olivia",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "reciver",
+					"value": "daniel",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "message",
+					"value": "hi daniel, how are you?",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "subject",
+					"value": "greeting",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "creation_date",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "d2e01995-4d93-af32-f63f-ad37e5203cbf",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://127.0.0.1:5000/newMessage",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1649761043544,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\"sender\": \"dor\", \"receiver\": \"aaron\", \"message\": \"hi aaron?\", \"subject\": \"greeting\"}"
+		},
+		{
+			"id": "4418aa04-55f5-4c18-a80a-8072037d700f",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/all_unread/dor",
+			"queryParams": [
+				{
+					"key": "reciver",
+					"value": "daniel",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "message",
+					"value": "hi daniel, how are you?",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "subject",
+					"value": "greeting",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "creation_date",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "d2e01995-4d93-af32-f63f-ad37e5203cbf",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://127.0.0.1:5000/all_unread/dor",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1649721113815,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\"sender\": \"dor\", \"receiver\": \"aaron\", \"message\": \"hi aaron?\", \"subject\": \"greeting\"}"
+		},
+		{
+			"id": "4b9704b0-57dd-3c48-c138-3541f814b24d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/newMessage",
+			"queryParams": [
+				{
+					"key": "sender",
+					"value": "Olivia",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "reciver",
+					"value": "daniel",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "message",
+					"value": "hi daniel, how are you?",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "subject",
+					"value": "greeting",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "creation_date",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "d2e01995-4d93-af32-f63f-ad37e5203cbf",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://127.0.0.1:5000/newMessage",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1649721216729,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\"sender\": \"chris\", \"receiver\": \"messi\", \"message\": \"hi chris, how are you?\", \"subject\": \"greeting\"}"
+		},
+		{
+			"id": "6a59b396-8750-c357-f2f1-f5e1a145a59f",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/newMessage",
+			"queryParams": [
+				{
+					"key": "sender",
+					"value": "Olivia",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "reciver",
+					"value": "daniel",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "message",
+					"value": "hi daniel, how are you?",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "subject",
+					"value": "greeting",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "creation_date",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "d2e01995-4d93-af32-f63f-ad37e5203cbf",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://127.0.0.1:5000/newMessage",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1649761013306,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\"sender\": \"dor\", \"receiver\": \"RONALDO\", \"message\": \"sup?\", \"subject\": \"greeting\"}"
+		},
+		{
+			"id": "74597dfc-cd24-96a3-895a-618dc84e0d28",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/newMessage",
+			"queryParams": [
+				{
+					"key": "sender",
+					"value": "Olivia",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "reciver",
+					"value": "daniel",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "message",
+					"value": "hi daniel, how are you?",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "subject",
+					"value": "greeting",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "creation_date",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "d2e01995-4d93-af32-f63f-ad37e5203cbf",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://127.0.0.1:5000/newMessage",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1649761028703,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\"sender\": \"dor\", \"receiver\": \"ermi\", \"message\": \"sup?\", \"subject\": \"greeting\"}"
+		},
+		{
+			"id": "c9eedb8e-5c93-804a-a945-5c85fafee0af",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/newMessage",
+			"queryParams": [
+				{
+					"key": "sender",
+					"value": "Olivia",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "reciver",
+					"value": "daniel",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "message",
+					"value": "hi daniel, how are you?",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "subject",
+					"value": "greeting",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "creation_date",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "d2e01995-4d93-af32-f63f-ad37e5203cbf",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://127.0.0.1:5000/newMessage",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1649761134493,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\"sender\": \"david\", \"receiver\": \"moshe\", \"message\": \"can you hear me??\", \"subject\": \"greeting\"}"
+		},
+		{
+			"id": "fa0c9897-f2ca-3f17-ef51-734b155c06cf",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/all/dor",
+			"queryParams": [
+				{
+					"key": "reciver",
+					"value": "daniel",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "message",
+					"value": "hi daniel, how are you?",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "subject",
+					"value": "greeting",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "creation_date",
+					"value": "",
+					"equals": false,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "d2e01995-4d93-af32-f63f-ad37e5203cbf",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://127.0.0.1:5000/all/dor",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1649721149171,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\"sender\": \"dor\", \"receiver\": \"aaron\", \"message\": \"hi aaron?\", \"subject\": \"greeting\"}"
+		}
+	]
+}
