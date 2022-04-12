@@ -1,21 +1,8 @@
-import collections
-import sys
-import json
-from flask import Flask, jsonify, g as app_ctx, make_response
 from flask_restful import Api
-from flask import request
-import time
-import uuid
-import jwt
-import datetime
 from datetime import date
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-import mysql.connector
-import os
-from functools import wraps
 
 app = Flask(__name__)
 api = Api(app)
@@ -34,7 +21,7 @@ class Message(db.Model):
     subject = db.Column(db.String(80))
     creation_date = db.Column(db.Integer)
     is_Read = db.Column(db.String)
-    column_not_exist = db.Column(db.Integer, primary_key=True)  # just add for sake of this error, dont add in db
+    column_not_exist = db.Column(db.Integer, primary_key=True)
 
     def __init__(self, sender, receiver, message, subject):
         self.sender = sender
@@ -74,13 +61,7 @@ def all(sender):
     output = []
 
     for message in messages:
-        message_data = {}
-        message_data['sender'] = message.sender
-        message_data['receiver'] = message.receiver
-        message_data['message'] = message.message
-        message_data['subject'] = message.subject
-        message_data['creation_date'] = message.creation_date
-
+        message_data = create_msg(message)
         output.append(message_data)
 
     return jsonify({'all messages': output})
@@ -92,13 +73,7 @@ def all_unread(sender):
     output = []
 
     for message in messages:
-        message_data = {}
-        message_data['sender'] = message.sender
-        message_data['receiver'] = message.receiver
-        message_data['message'] = message.message
-        message_data['subject'] = message.subject
-        message_data['creation_date'] = message.creation_date
-
+        message_data = create_msg(message)
         output.append(message_data)
 
     return jsonify({'all messages': output})
@@ -107,6 +82,40 @@ def all_unread(sender):
 @app.route('/one_msg/<user>', methods=['GET'])
 def read_msg(user):
     message = Message.query.filter_by(sender=user, is_Read='False').first()
+    if not message:
+        return jsonify({'message': 'No message found!'})
+    message_data = create_msg(message)
+
+    return jsonify({'message for you:': message_data})
+
+
+@app.route('/delete_owner/<user>', methods=['DELETE'])
+def delete_owner(user):
+    message = Message.query.filter_by(sender=user).first()
+
+    if not message:
+        return jsonify({'message': 'No message found!'})
+
+    db.session.delete(message)
+    db.session.commit()
+
+    return jsonify({'message': 'one message deleted!'})
+
+
+@app.route('/delete_receiver/<user>', methods=['DELETE'])
+def delete_receive(user):
+    message = Message.query.filter_by(receiver=user).first()
+
+    if not message:
+        return jsonify({'message': 'No message found!'})
+
+    db.session.delete(message)
+    db.session.commit()
+
+    return jsonify({'message': 'one message deleted!'})
+
+
+def create_msg(message):
     message_data = {}
     message_data['sender'] = message.sender
     message_data['receiver'] = message.receiver
@@ -114,57 +123,9 @@ def read_msg(user):
     message_data['subject'] = message.subject
     message_data['creation_date'] = message.creation_date
 
-    return jsonify({'message for you:': message_data})
-
-
-@app.route('/delete_owner/<user>', methods=['DELETE'])
-def delete_owner(user):
-    message = Message.query.filter_by(id=user).first()
-
-    if not message:
-        return jsonify({'message': 'No message found!'})
-
-    db.session.delete(message)
-    db.session.commit()
-
-    return jsonify({'message': 'one message delete deleted!'})
-
-
-@app.route('/delete_receiver/<user>', methods=['DELETE'])
-def delete_receive(user):
-    message = Message.query.filter_by(id=user).first()
-
-    if not message:
-        return jsonify({'message': 'No message found!'})
-
-    db.session.delete(message)
-    db.session.commit()
-
-    return jsonify({'message': 'Todo item deleted!'})
-
-
-def init_environment(path):
-    try:
-        json_data = open(path)
-        json_str = json_data.read()
-
-        env_details = json.loads(json_str)
-        vms_list = env_details["vms"]
-        fw_rules_list = env_details["fw_rules"]
-        return vms_list, fw_rules_list
-    except FileNotFoundError:
-        msg = "Sorry, the file " + path + "does not exist."
-        print(msg)
+    return message_data
 
 
 if __name__ == '__main__':
-
-    if len(sys.argv) < 2:
-        print("Error: please insert file path")
-    else:
-        input_file_path = sys.argv[1]
-        vms, fw_rules = init_environment(input_file_path)
-        app.config['vms'] = vms
-        app.config['fw_rules'] = fw_rules
-        app.config['stats'] = collections.OrderedDict({"vm_count": len(vms), "request_count": 0, "request_sum_time": 0})
-        app.run(debug=True, port=5000)
+    db.create_all()
+    app.run(debug=True, port=5000)
